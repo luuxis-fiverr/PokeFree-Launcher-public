@@ -3,7 +3,7 @@
     "preductname": "PokeFree Launcher",
     "version": "1.0.0",
     "description": "Launcher PokeFree 1.16.5",
-    "main": "src/app.js",
+    "main": "app/app.js",
     "author": "Luuxis",
     "url": "https://www.pokefree.fr/launcher_pokefree",
     "engines": {
