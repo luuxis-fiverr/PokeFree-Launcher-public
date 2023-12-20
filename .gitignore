@@ -4,3 +4,4 @@ src
 dist
 data
 web
+.DS_Store
