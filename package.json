@@ -7,7 +7,7 @@
     "author": "Luuxis",
     "url": "https://www.pokefree.fr/launcher_pokefree",
     "engines": {
-        "node": "^18.x.x"
+        "node": "^20.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
