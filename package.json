@@ -1,20 +1,20 @@
 {
     "name": "PokeFree-Launcher",
     "preductname": "PokeFree Launcher",
-    "version": "1.0.3",
-    "description": "Launcher PokeFree 1.16.5",
+    "version": "1.0.4",
+    "description": "Launcher Mincraft pour le serveur Selvania",
     "main": "app/app.js",
-    "author": "Luuxis",
-    "url": "https://www.pokefree.fr/launcher_pokefree",
-    "engines": {
-        "node": "^20.x.x"
+    "author": {
+        "name": "luuxis, Inc.",
+        "email": "contact@luuxis.fr",
+        "url": "https://github.com/luuxis"
     },
+    "url": "https://www.pokefree.fr/launcher_pokefree",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
-        "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
-        "start-server-php": "php -S 127.0.0.1:8080 -t \"%CD%\\web\"",
+        "dev": "cross-env-shell DEV_TOOL=open npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon=https://pokefree.fr/storage/img/logo3.png"
+        "icon": "node build.js --icon=https://files.luuxis.fr/pokefree.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
@@ -22,22 +22,22 @@
         "ignore": "**/test"
     },
     "dependencies": {
-        "electron-updater": "^6.1.7",
-        "minecraft-java-core": "^3.8.1",
-        "node-bdd": "^2.0.3",
-        "node-fetch": "^2.7.0"
-    },
-    "devDependencies": {
-        "cross-env": "^7.0.3",
-        "electron": "^28.0.0",
-        "electron-builder": "^24.9.1",
-        "javascript-obfuscator": "^4.1.0",
-        "jimp": "^0.22.10",
-        "nodemon": "^3.0.2",
-        "png2icons": "^2.0.1"
+        "electron-updater": "^6.3.9",
+        "minecraft-java-core": "^4.1.3",
+        "node-bdd": "^2.0.4",
+        "xml-js": "^1.6.11"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/luuxis-fiverr/PokeFree-Launcher-public.git"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "electron": "^23.3.13",
+        "electron-builder": "^25.1.8",
+        "javascript-obfuscator": "^4.1.1",
+        "jimp": "^1.6.0",
+        "nodemon": "^3.1.9",
+        "png2icons": "^2.0.1"
     }
 }

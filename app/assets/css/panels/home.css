@@ -5,6 +5,14 @@
     align-items: center;
 }
 
+.container-home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
 /*******************************************************************************
  *                                                                             *
  * Status server                                                               *
@@ -24,10 +32,11 @@
     margin-top: 3rem;
     padding: 1rem;
     text-align: center;
+    display: none;
 }
 
 .server-status-icon {
-    height: 3.3rem;
+    height: 5rem;
 }
 
 .server-status-name {
@@ -81,99 +90,56 @@
 
 /*******************************************************************************
  *                                                                             *
- * news server                                                                 *
+ * sidebar                                                                     *
  *                                                                             *
  ******************************************************************************/
 
-.new-tab {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85%;
-    height: 100%;
-}
-
-.titre-tab-new {
-    margin-top: 1rem;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    background: var(--background-transparent);
-    color: var(--color);
-}
-
-.news-list {
-    width: 90%;
-    height: 100%;
-    border-radius: 10px;
-    margin: 1rem 0;
-}
-
-.news-block {
-    width: 100%;
-    margin: 0 0 1rem 0;
-    border-radius: 10px;
-    background: var(--background-transparent);
-}
-
-.news-header {
+.sidebar {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
     align-items: center;
-}
-
-.header-text .title {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-.news-header .date {
-    display: flex;
+    width: 120px;
+    height: calc(100% - 4rem);
+    background: var(--background);
     flex-direction: column;
+    padding: 2rem 0;
+}
+
+.player-options {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    border-radius: 15px;
+    height: 3rem;
+    margin: 0 1.5rem;
 }
 
-.news-content .bbWrapper {
-    padding: 0 1.5rem;
-    padding-bottom: 1rem;
-    font-size: 1.2rem;
-
+.player-head {
+    background: url('../../images/default/setve.png'), no-repeat;
+    background-size: cover;
+    image-rendering: pixelated;
+    transition: var(--transition);
+    height: 3rem;
+    width: 3rem;
+    pointer-events: none;
+    border-radius: 15px;
 }
 
-.news-content .bbWrapper p {
-    font-weight: 100;
-    margin: 0;
-
-}
-
-.news-content .bbWrapper .news-author {
-    margin-top: 1rem;
-    text-align: end;
-    font-size: 0.8rem;
-}
-
-.news-content .bbWrapper .news-author span {
-    font-weight: 700;
-}
 
 /*******************************************************************************
  *                                                                             *
- * social server                                                               *
+ * social media                                                                *
  *                                                                             *
  ******************************************************************************/
 
+
+
 .social-tab {
     position: absolute;
-    display: flex;
-    bottom: 0;
+    top: 20px;
     right: 0;
-    width: 15%;
-    height: calc(80% - 1rem);
-    justify-content: center;
-    margin-bottom: 1rem;
+    width: 100px;
+    height: calc(100% - 20px);
 }
 
 .social-list {
@@ -183,19 +149,16 @@
 
 .social-block {
     display: flex;
-    background: var(--background-transparent);
-    width: 90px;
-    height: 90px;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-    font-size: 2rem;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .social-block .icon-social {
     pointer-events: none;
+    background-repeat: no-repeat;
     height: 55%;
     width: 55%;
     filter: var(--svg-color);
@@ -203,50 +166,75 @@
 
 /*******************************************************************************
  *                                                                             *
- * sidebar                                                                     *
+ * game container                                                              *
  *                                                                             *
  ******************************************************************************/
-
-.sidebar {
+.start-game-container {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 90px;
-    background: var(--background);
+    justify-content: space-evenly;
 }
 
-.player-options {
+.progress-circle {
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    left: 10px;
+    top: 6px;
+}
+
+.info-starting-game-progress {
+    position: absolute;
+    top: -45px;
+    left: -26px;
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    background: var(--background-element);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border: solid 3px var(--element-color);
-    border-radius: 15px;
-    padding: 0.1rem 0.5rem;
-    width: 65px;
-    height: 3rem;
-    margin: 0 1.5rem;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.info-starting-game-progress-container:hover .info-starting-game-progress {
+    opacity: 1;
     cursor: pointer;
 }
 
-.player-head {
-    background: url('../../images/default/setve.png'), no-repeat;
-    background-size: cover;
-    image-rendering: pixelated;
-    border-radius: 10px;
-    transition: var(--transition);
-    height: 2.5rem;
-    width: 2.5rem;
+.progress-ring {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: black 4px solid;
+    background: conic-gradient(#FFD83E 0% 0%, transparent 0% 100%);
+    mask: radial-gradient(circle at center, transparent 25%, black 0%);
+    -webkit-mask: radial-gradient(circle at center, transparent 35.8%, black 0%);
+    pointer-events: none;
 }
 
-.player-options:hover .player-head {
-    border-radius: 10px;
-    transition: var(--transition);
+.progress-ring::before {
+    position: absolute;
+    content: '';
+    top: 16.3%;
+    left: 16%;
+    width: 51%;
+    height: 51%;
+    border-radius: 50%;
+    border: black 4px solid;
+    pointer-events: none;
 }
 
 .player-menu {
     color: var(--element-color);
     transform: rotate(270deg);
+    pointer-events: none;
 }
 
 .play-elements {
@@ -263,33 +251,36 @@
     border: solid 3px var(--element-color);
     border-radius: 15px;
     height: 3.2rem;
-    padding-right: 1.9rem;
     cursor: pointer;
 }
 
 .play-btn {
+    display: flex;
+    padding: 0 1rem;
     border: none;
+    height: 100%;
     border-radius: 10px;
-    background: none;
-    color: var(--color);
-    font-size: 2rem;
+    background: var(--element-color);
+    color: black;
+    font-size: 1.5rem;
     font-weight: bolder;
-    padding: 0 1.5rem;
     pointer-events: none;
+    align-items: center;
 }
 
 .instance-select {
     display: flex;
     align-items: center;
     position: absolute;
-    right: -3;
+    right: -40px;
     top: -2;
     color: var(--element-color);
     font-size: 1rem;
     height: calc(100% - 1px);
     border: solid 3px var(--element-color);
     text-align: center;
-    border-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     padding: 0 0.5rem;
     cursor: pointer;
 }
@@ -300,36 +291,38 @@
 }
 
 .info-starting-game {
+    position: relative;
     display: none;
-    text-align: center;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 255px;
+    height: 57.2px;
+    justify-content: space-between;
 }
 
-.progress-bar {
-    appearance: none;
-    height: 10px;
-    margin: 0.5rem 0;
-}
-
-.progress-bar::-webkit-progress-bar {
-    background-color: var(--background);
-    border: solid 1px var(--element-color);
-    border-radius: 10px;
-}
-
-.progress-bar::-webkit-progress-value {
-    background-color: var(--element-color);
-    border-radius: 10px;
+.info-starting-game-text {
+    font-size: 1.5rem;
+    color: black;
+    background: var(--element-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-radius: 15px;
 }
 
 .settings-btn {
-    width: 3rem;
-    height: 3rem;
-    font-size: 3rem;
+    font-size: 4rem;
     color: var(--element-color);
     margin: 0 1.5rem;
     cursor: pointer;
 }
 
+/*******************************************************************************
+ *                                                                             *
+ * instance popup                                                              *
+ *                                                                             *
+ ******************************************************************************/
 .instance-popup {
     position: absolute;
     display: none;
