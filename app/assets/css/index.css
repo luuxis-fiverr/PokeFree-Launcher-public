@@ -1,6 +1,10 @@
 @import "font.css";
 @import 'theme.css';
 
+.container{
+    -webkit-app-region: drag; /* permet de déplacer la fenêtre */
+}
+
 body {
     background-color: var(--background);
     font-family: "Poppins";

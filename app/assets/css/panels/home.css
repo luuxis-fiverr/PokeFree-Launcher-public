@@ -1,8 +1,13 @@
-.home .container {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
+.sidebar {
+    position: relative;
+    -webkit-app-region: drag; /* zone draggable */
+}
+
+/* Tous les éléments interactifs doivent être “no-drag” */
+.container-home .settings-btn,
+.server-status-icon
+{
+    -webkit-app-region: no-drag;
 }
 
 .container-home {
@@ -37,6 +42,20 @@
 
 .server-status-icon {
     height: 5rem;
+    width: 5rem; /* même largeur et hauteur pour rester rond */
+    border-radius: 50%; /* garde l'image ronde */
+    outline: none;
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    object-fit: cover; /* pour que l'image remplisse bien le cercle */
+    cursor:pointer
+}
+
+.server-status-icon:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px rgba(255,255,255,0.6), 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 50%; /* garde le cercle même avec le shadow */
 }
 
 .server-status-name {
@@ -101,6 +120,13 @@
     width: 120px;
     height: calc(100% - 4rem);
     background: var(--background);
+    backdrop-filter: blur(12px) saturate(180%);
+    box-shadow: 0 4px 20px var(--shadow);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+
     flex-direction: column;
     padding: 2rem 0;
 }
@@ -136,24 +162,25 @@
 
 .social-tab {
     position: absolute;
-    top: 20px;
+    top: 50px;
     right: 0;
-    width: 100px;
-    height: calc(100% - 20px);
+    width: 85px;
+    height: calc(100% - 50px);
 }
 
 .social-list {
-    border-radius: 10px;
+    border-radius: 0px;
     height: 100%;
 }
 
 .social-block {
-    display: flex;
     width: 70px;
     height: 70px;
     cursor: pointer;
     align-items: center;
     justify-content: flex-end;
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .social-block .icon-social {
@@ -162,6 +189,22 @@
     height: 55%;
     width: 55%;
     filter: var(--svg-color);
+}
+
+.social-block:hover {
+    transform: scale(1.1) rotate(15deg); /* petit tournement de 15 degrés */
+    filter: brightness(1.2);
+}
+
+/* Animation bounce continue */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Classe à ajouter aux icônes que tu veux faire rebondir */
+.social-block.bounce {
+    animation: bounce 2s infinite;
 }
 
 /*******************************************************************************
@@ -264,8 +307,16 @@
     color: black;
     font-size: 1.5rem;
     font-weight: bolder;
-    pointer-events: none;
     align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    outline: none;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.6), 0 4px 10px rgba(0,0,0,0.2);
+    filter: brightness(1.2);
 }
 
 .instance-select {
@@ -309,6 +360,14 @@
     align-items: center;
     padding: 0 1rem;
     border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.info-starting-game-text:hover {
+    transform: scale(1.05);                        /* Agrandissement léger */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);  /* Glow plus subtil */
+    filter: brightness(1.05);
+    cursor: wait;
 }
 
 .settings-btn {
@@ -316,7 +375,19 @@
     color: var(--element-color);
     margin: 0 1.5rem;
     cursor: pointer;
+    display: inline-block; /* nécessaire pour transform */
 }
+
+.settings-btn::before {
+    display: inline-block; /* nécessaire pour transform */
+    transition: transform 0.3s ease; /* transition fluide */
+    transform: rotate(0deg) scale(1); /* état normal */
+}
+
+.settings-btn:hover::before {
+    transform: rotate(15deg) scale(1.1); /* état hover */
+}
+
 
 /*******************************************************************************
  *                                                                             *

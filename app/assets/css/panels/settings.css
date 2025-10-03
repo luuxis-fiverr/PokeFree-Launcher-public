@@ -14,6 +14,7 @@
 
 .popup-container {
     background: var(--background);
+    backdrop-filter: blur(16px) saturate(180%);
     width: 760px;
     height: 440px;
     border-radius: 15px;
@@ -28,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     font-size: 2rem;
+    
 }
 
 .nav-settings p {
@@ -56,10 +58,24 @@
     text-align: center;
     margin: 0.5rem 0;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-settings-btn:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(194, 194, 194, 0.8);
+  opacity: 1;
+}
+
+.nav-settings-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(194, 194, 194, 0.5);
+  opacity: 0.8;
 }
 
 .active-settings-BTN {
     background: var(--element-color);
+    color:black;
 }
 
 .container-settings {
@@ -320,6 +336,20 @@
     border-radius: 15px;
     margin: 0 1rem;
     cursor: pointer;
+    color: black;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.java-path-btn:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(194, 194, 194, 0.8);
+  opacity: 1;
+}
+
+.java-path-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(194, 194, 194, 0.5);
+  opacity: 0.8;
 }
 
 /*******************************************************************************
@@ -357,6 +387,20 @@
     border-radius: 15px;
     margin: 0 1rem;
     cursor: pointer;
+    color: black;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.size-btn:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(194, 194, 194, 0.8);
+  opacity: 1;
+}
+
+.size-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(194, 194, 194, 0.5);
+  opacity: 0.8;
 }
 
 /*******************************************************************************
@@ -382,6 +426,20 @@
     border-radius: 15px;
     margin: 0 1rem;
     cursor: pointer;
+    color: black;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.max-files:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(194, 194, 194, 0.8);
+  opacity: 1;
+}
+
+.max-files:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(194, 194, 194, 0.5);
+  opacity: 0.8;
 }
 
 .theme-btn {
