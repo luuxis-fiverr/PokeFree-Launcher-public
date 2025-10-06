@@ -1,7 +1,7 @@
 {
   "name": "PokeFree-Launcher",
-  "preductname": "PokeFree Launcher",
-  "version": "1.0.9",
+  "productname": "PokeFree Launcher",
+  "version": "1.1.0",
   "description": "Launcher Mincraft pour le serveur Selvania",
   "main": "src/app.js",
   "author": {
