@@ -448,3 +448,88 @@
 .active-instance {
     background: var(--element-color);
 }
+
+/* --- News widget (glassmorphism + thème intégré) --- */
+.news-widget {
+    position: absolute;
+    bottom: 25px;
+    left: 160px;
+    width: 220px;
+    max-width: calc(100% - 60px);
+    background: var(--background);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    box-shadow: 0 8px 30px var(--shadow);
+    border-radius: 14px;
+    padding: 0.6rem 0.8rem;
+    z-index: 15;
+    color: var(--color);
+    -webkit-app-region: no-drag;
+    cursor: default;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    user-select: none;
+}
+
+.news-widget:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+}
+
+.news-header {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--element-color);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+}
+
+.news-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.news-item {
+    font-size: 0.68rem;
+    line-height: 1;
+    color: var(--color);
+    opacity: 0.9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.18rem 0.3rem;
+    border-radius: 6px;
+    transition: color 0.18s ease, transform 0.18s ease, text-shadow 0.18s ease, background 0.18s ease;
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+    max-width: 100%;
+    display: block;
+    position: relative;
+}
+
+.news-item:hover {
+    color: var(--element-color);
+    transform: translateX(6px) scale(1.02);
+    text-shadow: 0 0 6px rgba(255,215,60,0.85);
+    background: rgba(255,255,255,0.05);
+}
+
+.news-item:first-child {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+@media (max-width: 420px) {
+    .news-widget {
+        left: 110px;
+        width: 180px;
+        bottom: 20px;
+    }
+    .news-item { font-size: 0.62rem; }
+    .news-header { font-size: 0.75rem; }
+}
