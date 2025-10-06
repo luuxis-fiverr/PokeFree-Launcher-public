@@ -1,12 +1,14 @@
 @import "font.css";
 @import 'theme.css';
 
-.container{
-    -webkit-app-region: drag; /* permet de déplacer la fenêtre */
+.container {
+    -webkit-app-region: drag;
 }
 
 body {
-    background-color: var(--background);
+    background: var(--background);
+    backdrop-filter: blur(12px) saturate(180%);
+    box-shadow: 0 4px 20px var(--shadow);
     font-family: "Poppins";
     letter-spacing: 0px;
 }

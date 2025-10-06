@@ -454,7 +454,7 @@
     position: absolute;
     bottom: 25px;
     left: 160px;
-    width: 220px;
+    width: 300px;
     max-width: calc(100% - 60px);
     background: var(--background);
     border: 1px solid rgba(255,255,255,0.08);
